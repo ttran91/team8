@@ -9,11 +9,14 @@ Team Members:
 Tasks Assigned
 1. Taylor Milton-Baker - Customer Portal
     - (DONE) Home screen displays customer login (username, password, forgot password, login/logout button)
-    -
+    - (DONE) Link Databases to JAVA
+    - (DONE) Canteen Utilities
+    - Integrate Classes
   
-2. Chan Hyun Kim - EmployeeBalance (Wallet)
-    -
-    -
+2. Chan Hyun Kim - Customer Wallet
+    - Display list of customers and their balances
+    - Add/Deduct Balances
+    - Low Balance Warning
     
 3. Vaasav Kumar - Vendor Portal
     - (DONE) Created SQL Database for Employee Canteen Management System
@@ -21,7 +24,9 @@ Tasks Assigned
     - (DONE) Assisted others and implemented functions within Java Project
     
 4. Tran Tran - Menu functionality
-    - (DONE)Display Menu from Menu.txt file.
-    - (DONE)Access Menu information from DB
+    - (DONE) Display Menu from Menu.txt file.
+    - (DONE) .txt FileException
+    - (DONE) Access Menu information from DB
+    - (DONE) Assist in DB creation
     
-5. Umair (absent) - Order Funtionality
+5. Umair Ali (absent) - Order Funtionality
