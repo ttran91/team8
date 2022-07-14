@@ -1,6 +1,10 @@
 package com.main.servce;
 
+import java.util.List;
 import java.util.Scanner;
+
+import com.main.DB;
+import com.main.customer;
 
 public class customerFunctions {
 	
@@ -22,7 +26,13 @@ public class customerFunctions {
 			}
 			switch(input) {
 			case 1:
+				System.out.println("Enter your Customer ID");
+				int cid = sc.nextInt();
 				
+				List<customer> list = DB.findcustUsername();
+				 for(customer e: list) {
+					 System.out.println(e.getCustBalance());
+				 }
 				
 				break;
 			case 2:

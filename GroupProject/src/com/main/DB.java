@@ -9,9 +9,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DB {
-	Connection con;
+	static Connection con;
 	
-	public void dbConnect() {
+	public static void dbConnect() {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			//System.out.println("Driver loaded..");
@@ -30,7 +30,7 @@ public class DB {
 	}
 	
 	
-	public void dbClose() {
+	public static void dbClose() {
 		try {
 			con.close();
 		} catch (SQLException e) {
@@ -61,7 +61,7 @@ public class DB {
 	
 
 	
-	public List<customer> findcustUsername(){
+	public static List<customer> findcustUsername(){
 		dbConnect();
 		String sql="Select * from Customer";
 		List<customer> list = new ArrayList<>();
@@ -79,6 +79,53 @@ public class DB {
 		}
 		dbClose();
 		return list;
+	}
+
+
+	public List<food> findFoodName() {
+		dbConnect();
+		String sql="Select * from Food";
+		List<food> list = new ArrayList<>();
+		try {
+			
+			PreparedStatement pstmt = con.prepareStatement(sql);
+			ResultSet rst = pstmt.executeQuery();
+			
+			while(rst.next()) {
+				list.add(new food(rst.getInt("idFood"), rst.getString("FoodName"), rst.getString("FoodCategory"), rst.getDouble("FoodPrice"),rst.getInt("Vendor_idVendor")));
+			}
+			
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}
+		dbClose();
+		return list;
+		
+		
+		
+		
+		
+		
+		
+	}
+
+
+	public void addNewVendor(Vendor v1) {
+		dbConnect();
+		String sql = "insert into vendor(VenName,VenUsername,VenPassword) values(?,?,?)";
+		
+		try {
+			PreparedStatement pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, v1.getVenName());
+			pstmt.setString(2, v1.getVenUsername());
+			pstmt.setString(3, v1.getVenPassword());
+			
+			pstmt.executeUpdate();
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+		dbClose();
+		
 	}
 	
 	
