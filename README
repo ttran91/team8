@@ -1,19 +1,19 @@
-TEAM 8 - Employee Canteen Management System
-===========================================
-Team Members: 
-- Vaasav Kumar
-- Taylor Milton-Baker
-- Tran Tran
-- Chan Hyun Kim
-===========================================
-Tasks Completed:
-- Vaasav Kumar:
-  - Created SQL Database for Employee Canteen Management System
-  - Created EER Diagram
-  - Assisted others and implemented functions within Java Project
+This is our repo for Team 8
 
-- Taylor Milton-Baker:
-
-- Tran Tran
-
-- Chan Hyun Kim
+Tasks Assigned
+==============
+1. Taylor Milton-Baker - Customer Portal
+    - (DONE) Home screen displays customer login (username, password, forgot password, login/logout button)
+    -
+  
+2. Chan Hyun Kim - EmployeeBalance (Wallet)
+    -
+    -
+3. Vaasav Kumar - Vendor Portal
+    -
+    -
+4. Tran Tran - Menu functionality
+    - (DONE)Display Menu from Menu.txt file.
+    - (DONE)Access Menu information from DB
+    
+5. Umair (absent) - Order Funtionality
