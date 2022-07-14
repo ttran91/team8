@@ -7,13 +7,15 @@ Tasks Assigned
     -
   
 2. Chan Hyun Kim - EmployeeBalance (Wallet)
-    -
-    -
+    - Add/Deduct Balance
+    - Display Employees
+    - Low Balance Warning
 3. Vaasav Kumar - Vendor Portal
     -
     -
 4. Tran Tran - Menu functionality
     - (DONE)Display Menu from Menu.txt file.
     - (DONE)Access Menu information from DB
+    - (DONE) Assist in SQL functionalities
     
 5. Umair (absent) - Order Funtionality
