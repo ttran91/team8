@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -128,7 +129,31 @@ public class DB {
 		
 	}
 	
-	
+	public static List<customer> showCustBalance(customer customer) {
+		dbConnect();
+		String sql = "select * from Customer where idCustomer = ?";
+		List<customer> list = new ArrayList<>();
+		try {
+			
+				PreparedStatement pstmt = con.prepareStatement(sql);
+				pstmt.setInt(1, customer.getId());
+				//pstmt.executeUpdate();
+				ResultSet rst = pstmt.executeQuery();
+				
+				while(rst.next()) {
+					list.add(new customer(rst.getInt("idCustomer"), rst.getString("CustName"), rst.getString("CustUserName"), rst.getString("CustPassword"), rst.getDouble("CustBalance")));
+				}
+				
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}
+		dbClose();
+		return list;
+		
+		/*ResultSet result = statement.executeQuery(sql);
+		
+		int CusB = result.getCustBalance("CustBalance");*/
+	}
 	
 	
 }

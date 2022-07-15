@@ -28,6 +28,17 @@ public static boolean CustpasswordValid(List<customer> list, String passWord) {
 	return passisPresent;
 }
 
+public static boolean CustUserIDValid(List<customer> findcustUsername, int id) {
+	boolean IDisPresent = false;
+	for(customer c:findcustUsername) {
+		if(c.getId() == id) {
+			IDisPresent = true;
+			break;
+		}
+	}
+	return IDisPresent;
+}
+
 
 
 

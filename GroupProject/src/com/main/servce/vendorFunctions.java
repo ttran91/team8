@@ -23,12 +23,6 @@ public class vendorFunctions {
 			switch (input) {
 			case 1:
 				System.out.println("***Customer Orders***");
-				
-				
-				
-				
-				
-				
 				break;
 			case 2:
 				break;

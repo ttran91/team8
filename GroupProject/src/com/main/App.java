@@ -76,21 +76,24 @@ public class App {
 				// sc.nextLine();
 				// String choice = sc.nextLine();
 				List<food> list = db.findFoodName();
+				//System.out.println(list);
 				for (food f : list) {
-					System.out.println(f);
+					//System.out.println(f);
 
 					System.out.println("\nMenu:");
 					System.out.println("\n\tItem Description		         ");
 					System.out.println("\t===================================");
 
 					File menuFile = new File("Menu.txt");
+					//System.out.println(menuFile.canRead());
 					try {
 						Scanner mf = new Scanner(menuFile);
+						//System.out.println(mf.hasNextLine());
 						while (mf.hasNextLine()) {
 							String i = mf.nextLine();
-							// System.out.println(i);
-							String[] item = i.split(" ");
-							// System.out.println(item[1]);
+							 //System.out.println(i);
+							String[] item = i.split(",");
+							 //System.out.println(item[1]);
 							System.out.println("\t" + item[1] + "\t(" + item[2] + ")");
 						}
 						mf.close();

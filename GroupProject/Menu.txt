@@ -1,1 +1,10 @@
-Food sample test
+1, Pizza, 8.99
+2, Butter Chicken, 13.99
+3, Spring Rolls, 11.99
+4, General Tso's Chicken, 17.99
+5, Casear Salad, 12.99
+6, Spaghetti, 24.99
+7, Corn Dogs, 16.99
+8, Ramen Noodles, 45.99
+9, Cajun French Fries, 4.99
+10, Chicken Nuggets, 9.99
