@@ -18,10 +18,10 @@ Tasks Assigned
     - Add/Deduct Balances
     - Low Balance Warning
     
-3. Vaasav Kumar - Vendor Portal
+3. Vaasav Kumar - Database
     - (DONE) Created SQL Database for Employee Canteen Management System
     - (DONE) Created EER Diagram
-    - (DONE) Access Vendor functionalities from DB
+    - (DONE) Access DB functionalities in DB.java
     - (DONE) Assisted others and implemented functions within Java Project
     
 4. Tran Tran - Menu functionality
