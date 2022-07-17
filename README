@@ -14,9 +14,9 @@ Tasks Assigned
     - Integrate Classes
   
 2. Chan Hyun Kim - Customer Wallet
-    - Display list of customers and their balances
-    - Add/Deduct Balances
-    - Low Balance Warning
+    - (DONE) Display list of customers and their balances
+    - (DONE) Add/Deduct Balances
+    - (DONE) Low Balance Warning
     
 3. Vaasav Kumar - Database
     - (DONE) Created SQL Database for Employee Canteen Management System
