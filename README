@@ -11,12 +11,15 @@ Tasks Assigned
     - (DONE) Home screen displays customer login (username, password, forgot password, login/logout button)
     - (DONE) Link Databases to JAVA
     - (DONE) Canteen Utilities
-    - Integrate Classes
+    - (DONE) Integrate Classes
   
 2. Chan Hyun Kim - Customer Wallet
-    - Display list of customers and their balances
-    - Add/Deduct Balances
-    - Low Balance Warning
+    - (DONE) Display list of customers and their balances
+    canteenUtilities.java
+    customerFunctions.java:
+    - (DONE) Add/Deduct Balances
+    - (DONE) Low Balance Warning
+    - (DONE) CustomerService.java
     
 3. Vaasav Kumar - Database
     - (DONE) Created SQL Database for Employee Canteen Management System
@@ -24,10 +27,23 @@ Tasks Assigned
     - (DONE) Access DB functionalities in DB.java
     - (DONE) Assisted others and implemented functions within Java Project
     
-4. Tran Tran - Menu functionality
-    - (DONE) Display Menu from Menu.txt file.
-    - (DONE) .txt FileException
-    - (DONE) Access Menu information from DB
-    - (DONE) Assist in DB creation
+4. Tran Tran - Vendor Portal with Menu and Order functionality
+    MySQL:
+    - (DONE) Assist in DB and ERDiagram creation
+    DB.java
+    - (DONE) Create Menu and Vendor methods
+    canteenUtilities.java
+    - (DONE) Create Menu and Vendor methods
+    App.java:
+    - (DONE) Case 3: View Today’s Menu
+    vendorFunctions.java: 
+    - (DONE) Case 1: View All Customer Orders
+    - (DONE) Case 2: View All Pending Orders
+    - (DONE) Case 3: View All Confirmed Orders
+    - (DONE) Case 4: View All Completed Orders
+    - (DONE) Case 5: View All Canceled Orders
+    - (DONE) Case 6: Change status of Customer Orders
+    - (DONE) Case 7: Change Menu Items
+    - (DONE) Case 8: Upload Menu Items from file
     
-5. Umair Ali (absent) - Order Funtionality
+5. Umair Ali (absent) 
