@@ -1,0 +1,155 @@
+Food Court Administration
+
+/*
+-- MySQL Workbench Forward Engineering
+
+-- -----------------------------------------------------
+-- Schema FoodCourtAdministration
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- Schema FoodCourtAdministration
+-- -----------------------------------------------------
+CREATE SCHEMA IF NOT EXISTS `FoodCourtAdministration` DEFAULT CHARACTER SET utf8 ;
+USE `FoodCourtAdministration` ;
+
+-- -----------------------------------------------------
+-- Table `FoodCourtAdministration`.`Customer`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `FoodCourtAdministration`.`Customer` (
+  `idCustomer` INT NOT NULL AUTO_INCREMENT,
+  `CustName` VARCHAR(255) NOT NULL,
+  `CustUsername` VARCHAR(255) NOT NULL,
+  `CustPassword` VARCHAR(255) NOT NULL,
+  `CustBalance` DECIMAL(5,2) NOT NULL,
+  PRIMARY KEY (`idCustomer`),
+  UNIQUE INDEX `idCustomer_UNIQUE` (`idCustomer` ASC))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `FoodCourtAdministration`.`Order`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `FoodCourtAdministration`.`Order` (
+  `idOrder` INT NOT NULL AUTO_INCREMENT,
+  `OrderStatus` VARCHAR(255) NOT NULL,
+  `OrderCost` DECIMAL(5,2) NOT NULL,
+  `idCustomer` INT NOT NULL,
+  PRIMARY KEY (`idOrder`),
+  UNIQUE INDEX `idOrder_UNIQUE` (`idOrder` ASC),
+  INDEX `fk_Order_Customer_idx` (`idCustomer` ASC),
+  CONSTRAINT `fk_Order_Customer`
+    FOREIGN KEY (`idCustomer`)
+    REFERENCES `FoodCourtAdministration`.`Customer` (`idCustomer`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `FoodCourtAdministration`.`Vendor`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `FoodCourtAdministration`.`Vendor` (
+  `idVendor` INT NOT NULL AUTO_INCREMENT,
+  `VenName` VARCHAR(255) NOT NULL,
+  `VenUsername` VARCHAR(255) NOT NULL,
+  `VenPassword` VARCHAR(255) NOT NULL,
+  PRIMARY KEY (`idVendor`),
+  UNIQUE INDEX `idVendor_UNIQUE` (`idVendor` ASC))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `FoodCourtAdministration`.`Food`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `FoodCourtAdministration`.`Food` (
+  `idFood` INT NOT NULL AUTO_INCREMENT,
+  `FoodName` VARCHAR(255) NOT NULL,
+  `FoodCategory` VARCHAR(255) NOT NULL,
+  `FoodPrice` DECIMAL(5,2) NOT NULL,
+  `Vendor_idVendor` INT NOT NULL,
+  `FoodQuantity` INT NOT NULL,
+  PRIMARY KEY (`idFood`),
+  UNIQUE INDEX `idFood_UNIQUE` (`idFood` ASC),
+  INDEX `fk_Food_Vendor1_idx` (`Vendor_idVendor` ASC),
+  CONSTRAINT `fk_Food_Vendor1`
+    FOREIGN KEY (`Vendor_idVendor`)
+    REFERENCES `FoodCourtAdministration`.`Vendor` (`idVendor`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `FoodCourtAdministration`.`Order_has_Food`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `FoodCourtAdministration`.`Order_has_Food` (
+  `Order_idOrder` INT NOT NULL,
+  `Food_idFood` INT NOT NULL,
+  PRIMARY KEY (`Order_idOrder`, `Food_idFood`),
+  INDEX `fk_Order_has_Food_Food1_idx` (`Food_idFood` ASC),
+  INDEX `fk_Order_has_Food_Order1_idx` (`Order_idOrder` ASC),
+  CONSTRAINT `fk_Order_has_Food_Order1`
+    FOREIGN KEY (`Order_idOrder`)
+    REFERENCES `FoodCourtAdministration`.`Order` (`idOrder`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Order_has_Food_Food1`
+    FOREIGN KEY (`Food_idFood`)
+    REFERENCES `FoodCourtAdministration`.`Food` (`idFood`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+*/
+
+---------------------------------------------------------------
+/*
+INSERT INTO Customer 
+VALUES (1, "James",  "James123", "James321", 104.68),
+(2, "Kyle", "Kyle123", "Kyle321", 199.98),
+(3, "Maven", "Maven123", "Maven321", 281.11),
+(4, "Loren", "Loren123", "Lorean321", 25.77),
+(5,"Adam","Adam123","Adam321",32.50),
+(6,"Arianna","Arianna123","Arianna321", 983.99),
+(7,"Taylor","Taylor123","Taylor321", 90),
+(8,"Kate","Kate123","Kate321", 90.04),
+(9,"Derek", "Derek123", "Derek321", 19.00),
+(10, "Emily", "Emily123", "Emily321", 13.99);
+*/
+
+-----------------------------------------------------------------------
+/*
+INSERT INTO Food  (FoodName, FoodCategory, FoodPrice, Vendor_idVendor, FoodQuantity)
+VALUES ("Pizza","American", 8.99, 1, 55),
+("Butter Chicken","Indian", 13.99, 2, 22),
+("Spring Rolls","Vietnamese", 11.99, 2, 34),
+("General Tso's Chicken", "Chinese", 17.99, 2, 29),
+("Casear Salad", "Mexican", 12.99, 4, 33),
+("Spaghetti", "Italian", 24.99, 4, 12),
+("Corn Dogs", "American", 16.99, 1, 80),
+("Ramen Noodles", "Japanese", 45.99, 3, 56),
+("Cajun French Fries", "American",4.99, 5, 55),
+("Popcorn Shrimp", "American", 9.99, 5, 43);
+*/
+-----------------------------------------------------------------------
+/*
+INSERT INTO vendor
+values (1, "Domino's Pizza", "dominos123", "dominos321"),
+ (2,"Rising Star","rising123","rising321"),
+(3, "Sakura Japan", "sakura123", "sakura321"), 
+(4, "Olive Garden", "olive123", "olive321"),
+(5, "Seafood Claws", "seafood123","seafood123");
+*/
+-----------------------------------------------------------------------
+/*
+INSERT INTO `Order` (OrderStatus, OrderCost, idCustomer)
+VALUES ("Pending", 18.98, 6),
+("Pending", 4.99, 8),
+("Completed", 8.99, 1),
+("Pending", 9.99, 4),
+("Confirmed", 24.99, 3),
+("Canceled", 45.99, 3);
+*/
+
+
+
