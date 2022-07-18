@@ -9,6 +9,7 @@ import java.util.Scanner;
 import com.main.DB;
 import com.main.canteenUtility;
 import com.main.customer;
+import com.main.food;
 
 public class customerFunctions {
 	
@@ -25,6 +26,10 @@ public class customerFunctions {
 			System.out.println(" Enter 1 to View Account Details");
 			System.out.println(" Enter 2 to Add to Wallet");
 			System.out.println(" Enter 3 to Withdraw from Balance");
+			System.out.println(" Enter 4 View Today's Menu");
+			System.out.println(" Enter 5 to Place an Order"); //take idFood and idOrder and add into `order_has_food` table AND create `order` table
+			System.out.println(" Enter 6 to View your Orders"); //all orders that this customer has placed in the past
+			System.out.println(" Enter 7 to Cancel Orders"); //remove only pending orders, throw invalid if it's already confirmed
 			System.out.println(" Enter 0 to Log Out");
 			
 			int input = sc.nextInt();
@@ -146,6 +151,20 @@ public class customerFunctions {
 					e.printStackTrace();
 				}
 				
+				break;
+			case 4:
+				System.out.println("\n    Today's Menu");
+				System.out.println("======================");
+				List<food> list = DB.findFoodName();
+				for (food f : list) {
+					System.out.println(f);
+				}
+				break;
+			case 5:
+				break;
+			case 6:
+				break;
+			case 7:
 				break;
 			default:
 				break;
