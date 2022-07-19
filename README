@@ -13,7 +13,6 @@ Tasks Assigned
     - (DONE) Link Databases to JAVA
     - (DONE) Canteen Utilities
     - (DONE) Integrate Classes
-=======
     - (DONE) Vendor Logins (Username/Password)
 
   
@@ -33,8 +32,6 @@ Tasks Assigned
     
 4. Tran Tran - Vendor Portal with Menu and Order functionality
     MySQL:
-    - (DONE) Assist in DB and ERDiagram creation
-=======
     - (DONE) Assist in DB creation
     DB.java
     - (DONE) Create Menu and Vendor methods
