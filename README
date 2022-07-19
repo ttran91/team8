@@ -8,10 +8,14 @@ Team Members:
 ===========================================
 Tasks Assigned
 1. Taylor Milton-Baker - Customer Portal
+    - (DONE) Assisted in DB creation
     - (DONE) Home screen displays customer login (username, password, forgot password, login/logout button)
     - (DONE) Link Databases to JAVA
     - (DONE) Canteen Utilities
     - (DONE) Integrate Classes
+=======
+    - (DONE) Vendor Logins (Username/Password)
+
   
 2. Chan Hyun Kim - Customer Wallet
     - (DONE) Display list of customers and their balances
@@ -30,6 +34,8 @@ Tasks Assigned
 4. Tran Tran - Vendor Portal with Menu and Order functionality
     MySQL:
     - (DONE) Assist in DB and ERDiagram creation
+=======
+    - (DONE) Assist in DB creation
     DB.java
     - (DONE) Create Menu and Vendor methods
     canteenUtilities.java
