@@ -1,6 +1,14 @@
-
+TEAM 8 - Employee Canteen Management System
+===========================================
+Team Members:
+- Taylor Milton-Baker
+- Chan Hyun Kim
+- Vaasav Kumar
+- Tran Tran
+===========================================
 Tasks Assigned
-4. Tran Tran - Vendor Portal with Menu and Order functionality
+
+Tran Tran - Vendor Portal with Menu and Order functionality
     MySQL:
     - (DONE) Assist in DB creation
     DB.java
