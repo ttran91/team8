@@ -7,46 +7,16 @@ Team Members:
 - Tran Tran
 ===========================================
 Tasks Assigned
-1. Taylor Milton-Baker - Customer Portal
-    - (DONE) Assisted in DB creation
-    - (DONE) Home screen displays customer login (username, password, forgot password, login/logout button)
-    - (DONE) Link Databases to JAVA
-    - (DONE) Canteen Utilities
-    - (DONE) Integrate Classes
-    - (DONE) Vendor Logins (Username/Password)
-
-  
-2. Chan Hyun Kim - Customer Wallet
-    - (DONE) Display list of customers and their balances
-    canteenUtilities.java
-    customerFunctions.java:
-    - (DONE) Add/Deduct Balances
-    - (DONE) Low Balance Warning
-    - (DONE) CustomerService.java
-    
-3. Vaasav Kumar - Database
-    - (DONE) Created SQL Database for Employee Canteen Management System
-    - (DONE) Created EER Diagram
-    - (DONE) Access DB functionalities in DB.java
-    - (DONE) Assisted others and implemented functions within Java Project
-    
-4. Tran Tran - Vendor Portal with Menu and Order functionality
-    MySQL:
-    - (DONE) Assist in DB creation
-    DB.java
-    - (DONE) Create Menu and Vendor methods
-    canteenUtilities.java
-    - (DONE) Create Menu and Vendor methods
-    App.java:
-    - (DONE) Case 3: View Today’s Menu
-    vendorFunctions.java: 
-    - (DONE) Case 1: View All Customer Orders
-    - (DONE) Case 2: View All Pending Orders
-    - (DONE) Case 3: View All Confirmed Orders
-    - (DONE) Case 4: View All Completed Orders
-    - (DONE) Case 5: View All Canceled Orders
-    - (DONE) Case 6: Change status of Customer Orders
-    - (DONE) Case 7: Change Menu Items
-    - (DONE) Case 8: Upload Menu Items from file
-    
-5. Umair Ali (absent) 
+Chan Hyun Kim - Customer Wallet
+   canteenUtilities.java :
+    - (DONE) Implement few methods for canteenUtilities.java
+   CustomerSerivce.java :
+    - (DONE) updateAddBalance(double balance, int id);
+        - (DONE) updateAubBalance(double balance, int id);
+        - (DONE) LowBalance(double withdrawl, double balance);
+   customerFunctions.java:
+    - (DONE) Case 1: to View Account Details
+        * (DONE) Display list of customers and their balances
+    - (DONE) Case 2: to Add to Wallet
+    - (DONE) Case 3: to Withdraw from Balance
+        * (DONE) Low Balance Warning
