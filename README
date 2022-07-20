@@ -12,8 +12,8 @@ Chan Hyun Kim - Customer Wallet
     - (DONE) Implement few methods for canteenUtilities.java
    CustomerSerivce.java :
     - (DONE) updateAddBalance(double balance, int id);
-        - (DONE) updateAubBalance(double balance, int id);
-        - (DONE) LowBalance(double withdrawl, double balance);
+        * (DONE) updateAubBalance(double balance, int id);
+        * (DONE) LowBalance(double withdrawl, double balance);
    customerFunctions.java:
     - (DONE) Case 1: to View Account Details
         * (DONE) Display list of customers and their balances
