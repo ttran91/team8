@@ -23,3 +23,8 @@ Chan Hyun Kim - Customer Wallet
     - (DONE) Case 2: to Add to Wallet
     - (DONE) Case 3: to Withdraw from Balance
         * (DONE) Low Balance Warning
+
+   SpringBoot
+    - (DONE) Create Food
+    - (DONE) Create FoodControll
+    - (DONE) Create FoodRepository
