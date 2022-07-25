@@ -18,10 +18,22 @@ public class Order {
 	private Long id;
 	
 	@Column (length = 255, nullable = false)
-	private String orderName;
+	private String orderStatus;
 	
 	@Column (nullable = true)
-	private Integer orderPreference;
+	private Double orderCost;
+
+	public Order() {
+		super();
+		
+	}
+
+	public Order(Long id, String orderStatus, Double orderCost) {
+		super();
+		this.id = id;
+		this.orderStatus = orderStatus;
+		this.orderCost = orderCost;
+	}
 
 	public Long getId() {
 		return id;
@@ -31,38 +43,31 @@ public class Order {
 		this.id = id;
 	}
 
-	public String getOrderName() {
-		return orderName;
+	public String getOrderStatus() {
+		return orderStatus;
 	}
 
-	public void setOrderName(String orderName) {
-		this.orderName = orderName;
+	public void setOrderStatus(String orderStatus) {
+		this.orderStatus = orderStatus;
 	}
 
-	public Integer getOrderPreference() {
-		return orderPreference;
+	public Double getOrderCost() {
+		return orderCost;
 	}
 
-	public void setOrderPreference(Integer orderPreference) {
-		this.orderPreference = orderPreference;
-	}
-
-	public Order(Long id, String orderName, Integer orderPreference) {
-		super();
-		this.id = id;
-		this.orderName = orderName;
-		this.orderPreference = orderPreference;
-	}
-
-	public Order() {
-		super();
-		
+	public void setOrderCost(Double orderCost) {
+		this.orderCost = orderCost;
 	}
 
 	@Override
 	public String toString() {
-		return "Order [id=" + id + ", orderName=" + orderName + ", orderPreference=" + orderPreference + "]";
-	} 
+		return "Order [id=" + id + ", orderStatus=" + orderStatus + ", orderCost=" + orderCost + "]";
+	}
+	
+	
+	
+	
+	
 	
 	
 	
