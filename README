@@ -14,6 +14,11 @@ Tasks Assigned
     - (DONE) Canteen Utilities
     - (DONE) Integrate Classes
     - (DONE) Vendor Logins (Username/Password)
+     SpringBoot:
+    - (DONE) Create Customer Model
+    - (DONE) Create CustomerController
+    - (DONE) Create CustomerRepository
+    
 
   
 2. Chan Hyun Kim - Customer Wallet
