@@ -5,6 +5,7 @@ Team Members:
 - Chan Hyun Kim
 - Vaasav Kumar
 - Tran Tran
+- Umair Ali
 ===========================================
 Tasks Assigned
 1. Taylor Milton-Baker - Customer Portal
@@ -58,4 +59,8 @@ Tasks Assigned
     - (DONE) Create VendorControll
     - (DONE) Create VendorRepository
     
-5. Umair Ali (absent) 
+5. Umair Ali - Order and Order_has_food tables
+
+    - (DONE) Create Order API with PUT POST DELETE and GET APIs
+    - (DONE) Create Order_Has_Food model, repository and controller
+   
