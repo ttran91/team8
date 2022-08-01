@@ -14,8 +14,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.springboot.backend.repository.CustomerRepository;
 import com.springboot.backend.repository.OrderRepository;
+import com.springboot.backend.repository.VendorRepository;
 import com.springboot.backend.model.Customer;
 import com.springboot.backend.model.Order;
+import com.springboot.backend.model.Vendor;
 
 @RestController //marking a class as controller
 
@@ -28,11 +30,59 @@ public class OrderController {
 	@Autowired
 	private CustomerRepository customerRepository;
 	
+	@Autowired
+	private VendorRepository vendorRepository;
 	
-	@PostMapping("/order/{cid}")
-	public void postOrderStatus(@RequestBody Order order,@PathVariable("cid") Long cid) {
+	
+	
+	@PostMapping("/order/{cid}/{vid}")
+	public Order postOrder(@RequestBody Order order, 
+						   @PathVariable("cid") Long cid,
+						   @PathVariable("vid") Long vid) {
+
+		Optional<Customer> optional = customerRepository.findById(cid);
+		if (!optional.isPresent())
+			throw new RuntimeException("Customer ID is Invalid!!");
+
+		Customer customer = optional.get();
+
+		Optional<Vendor> optionalV = vendorRepository.findById(vid);
 		
-		/* fetching the customer by cid */
+		if(!optionalV.isPresent())
+			throw new RuntimeException("Vendor ID is Invalid!!");
+		
+		Vendor vendor = optionalV.get();
+		
+		
+		order.setCustomer(customer);
+		order.setVendor(vendor);
+		
+		return orderRepository.save(order);
+		
+	}
+	
+	
+	@PostMapping("/order/vendor/{vid}")
+	public void postOrderByVendorId(@RequestBody Order order,
+									@PathVariable("vid") Long vid) {
+
+		Optional<Vendor> optional = vendorRepository.findById(vid);
+		if (!optional.isPresent())
+			throw new RuntimeException("Vendor ID is Invalid!!");
+		
+		Vendor vendor = optional.get();
+		
+		order.setVendor(vendor);
+		
+		orderRepository.save(order);
+	}
+	
+	
+	
+	@PostMapping("/order/customer/{cid}")
+	public void postOrderByCustomerId(@RequestBody Order order,
+									  @PathVariable("cid") Long cid) {
+
 		
 		Optional<Customer> optional = customerRepository.findById(cid);
 		if (!optional.isPresent())
@@ -45,6 +95,9 @@ public class OrderController {
 		orderRepository.save(order);
 	}
 	
+	
+	
+	
 	@GetMapping("/orders")
 	public List<Order> getAllOrders(){
 		List<Order> list = orderRepository.findAll();
@@ -54,13 +107,28 @@ public class OrderController {
 	}
 	
 	@GetMapping("/order/customer/{cid}")
-	public List<Order> getProductsByCategoryId(@PathVariable("cid") Long cid){
-		List<Order> list = orderRepository.getorderByCustomerId(cid);
+	public List<Order> getOrderByCustomerId(@PathVariable("cid") Long cid){
+		List<Order> list = orderRepository.getOrderByCustomerId(cid);
 		return list;
 	}
 	
+	@GetMapping("/order/vendor/{vid}")
+	public List<Order> getOrderByVendorId(@PathVariable("vid") Long vid){
+		List<Order> list = orderRepository.getOrderByVendorId(vid);
+		return list;
+	}
+	
+	@GetMapping("/order/single/{id}")
+	public Order getSingleOrderById(@PathVariable("id") Long id) {
+		Optional <Order> optional = orderRepository.findById(id);
+		if(optional.isPresent())
+			return optional.get();
+		throw new RuntimeException("ID in invalid");
+		
+	}
+	
 	@PutMapping("/order/{id}")
-	public Order updateCategory(@PathVariable("id") Long id,
+	public Order updateOrderById(@PathVariable("id") Long id,
 			@RequestBody Order newOrder) {
 		Optional<Order> optional =orderRepository.findById(id);
 		if(optional.isPresent()) {
@@ -73,17 +141,10 @@ public class OrderController {
 			throw new RuntimeException("ID is invalid");
 	}
 	
-	@GetMapping("/order/single/{id}")
-	public Order getSingleOrderById(@PathVariable("id") Long id) {
-		Optional <Order> optional = orderRepository.findById(id);
-		if(optional.isPresent())
-			return optional.get();
-		throw new RuntimeException("ID in invalid");
-		
-	}
+
 	
 	@DeleteMapping("/order/single/{id}")
-	public void deleteOrderStatus(@PathVariable("id") Long id) {
+	public void deleteOrderById(@PathVariable("id") Long id) {
 		orderRepository.deleteById(id);
 	
 	}

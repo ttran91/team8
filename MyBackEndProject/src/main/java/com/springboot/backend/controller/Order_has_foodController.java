@@ -1,12 +1,16 @@
 package com.springboot.backend.controller;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+
 import com.springboot.backend.model.Food;
 import com.springboot.backend.model.Order;
 import com.springboot.backend.model.Order_has_food;
@@ -49,6 +53,34 @@ public class Order_has_foodController {
 		OrderHasFood.setFood(food);
 	
 		return OrderHasFoodRepository.save(OrderHasFood);
+	}
+	
+	@GetMapping("/ordersHasFood")
+	public List<Order_has_food> getAllOrderHasFood(){
+		List<Order_has_food> list = OrderHasFoodRepository.findAll();
+		
+		return list;
+		
+	}
+	
+	@GetMapping("/orderHasFood/food/{fid}")
+	public List<Order_has_food> getOrderHasFoodByFid(@PathVariable("fid") Long fid){
+		List<Order_has_food> list = OrderHasFoodRepository.getOrderHasFoodByFid(fid);
+		return list;
+	}
+	
+	
+	@GetMapping("/orderHasFood/order/{oid}")
+	public List<Order_has_food> getOrderHasFoodByOid(@PathVariable("Oid") Long Oid){
+		List<Order_has_food> list = OrderHasFoodRepository.getOrderHasFoodByOid(Oid);
+		return list;
+	}
+	
+	
+	@DeleteMapping("/OrderHasFood/{id}")
+	public void OrderHasFood(@PathVariable("id")Long id){
+		OrderHasFoodRepository.deleteById(id);
+		
 	}
 	
 	

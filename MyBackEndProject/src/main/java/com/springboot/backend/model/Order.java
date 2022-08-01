@@ -25,26 +25,23 @@ public class Order {
 	private Double orderCost;
 	
 	@OneToOne
-	private Customer customer;
-
-	public Customer getCustomer() {
-		return customer;
-	}
-
-	public void setCustomer(Customer customer) {
-		this.customer = customer;
-	}
+	private Customer customer; //FK
+	
+	@OneToOne
+	private Vendor vendor;
 
 	public Order() {
 		super();
 		
 	}
 
-	public Order(Long id, String orderStatus, Double orderCost) {
+	public Order(Long id, String orderStatus, Double orderCost, Customer customer, Vendor vendor) {
 		super();
 		this.id = id;
 		this.orderStatus = orderStatus;
 		this.orderCost = orderCost;
+		this.customer = customer;
+		this.vendor = vendor;
 	}
 
 	public Long getId() {
@@ -71,10 +68,33 @@ public class Order {
 		this.orderCost = orderCost;
 	}
 
+	public Customer getCustomer() {
+		return customer;
+	}
+
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
+	}
+
+	public Vendor getVendor() {
+		return vendor;
+	}
+
+	public void setVendor(Vendor vendor) {
+		this.vendor = vendor;
+	}
+
 	@Override
 	public String toString() {
-		return "Order [id=" + id + ", orderStatus=" + orderStatus + ", orderCost=" + orderCost + "]";
+		return "Order [id=" + id + ", orderStatus=" + orderStatus + ", orderCost=" + orderCost + ", customer="
+				+ customer + ", vendor=" + vendor + "]";
 	}
+	
+	
+
+	
+	
+	
 	
 	
 	
