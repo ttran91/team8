@@ -60,7 +60,12 @@ Tasks Assigned
     - (DONE) Create VendorRepository
     
 5. Umair Ali - Order and Order_has_food tables
-
+    
+    - (DONE) Create Order & Order_has_food model
+    - (DONE) Create Order & Order_has_food Controller
+    - (DONE) Create Order & Order_has_food Repository
+    - (DONE) Create a relation between Order, Customer and Vendor tables
+    - (DONE) Create a relation between Order_has_food, Food and Order tables
     - (DONE) Create Order API with PUT POST DELETE and GET APIs
-    - (DONE) Create Order_Has_Food model, repository and controller
-   
+    - (DONE) Create Order_has_food API with POST and GET APIs
+  
