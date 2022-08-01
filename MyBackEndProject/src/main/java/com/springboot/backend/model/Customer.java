@@ -5,24 +5,26 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name="customer")
 public class Customer {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
-	@Column
+	@Column(nullable=false)
 	private String CustomerName;
 	
-	@Column
+	@Column(nullable=false)
 	private String CustomerUsername;
 	
-	@Column
+	@Column(nullable=false)
 	private String CustomerPassword;
 	
-	@Column
+	@Column(nullable=false)
 	private double CustomerBalance;
 
 	public Customer() {
