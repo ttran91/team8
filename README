@@ -19,8 +19,6 @@ Tasks Assigned
     - (DONE) Create Customer Model
     - (DONE) Create CustomerController
     - (DONE) Create CustomerRepository
-    
-
   
 2. Chan Hyun Kim - Customer Wallet
     - (DONE) Display list of customers and their balances
@@ -30,11 +28,16 @@ Tasks Assigned
     - (DONE) Low Balance Warning
     - (DONE) CustomerService.java
     
-3. Vaasav Kumar - Database
+3. Vaasav Kumar - Database Functionality & Inventory Functionality
+    MySQL:
     - (DONE) Created SQL Database for Employee Canteen Management System
     - (DONE) Created EER Diagram
     - (DONE) Access DB functionalities in DB.java
-    - (DONE) Assisted others and implemented functions within Java Project
+    Java:
+    - (DONE) Link Databases to JavaSpringBoot
+    - (DONE) Created Inventory Controller
+    - (DONE) Created Inventory Model
+    - (DONE) Created Inventory Repository
     
 4. Tran Tran - Vendor Portal with Menu and Order functionality
     MySQL:
