@@ -1,5 +1,6 @@
 package com.springboot.backend.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.springboot.backend.repository.CustomerRepository;
 import com.springboot.backend.repository.OrderRepository;
 import com.springboot.backend.repository.VendorRepository;
+import com.springboot.backend.DTO.OrderDto;
 import com.springboot.backend.model.Customer;
 import com.springboot.backend.model.Order;
 import com.springboot.backend.model.Vendor;
@@ -59,53 +61,50 @@ public class OrderController {
 		
 		return orderRepository.save(order);
 		
-	}
-	
-	
-	@PostMapping("/order/vendor/{vid}")
-	public void postOrderByVendorId(@RequestBody Order order,
-									@PathVariable("vid") Long vid) {
-
-		Optional<Vendor> optional = vendorRepository.findById(vid);
-		if (!optional.isPresent())
-			throw new RuntimeException("Vendor ID is Invalid!!");
-		
-		Vendor vendor = optional.get();
-		
-		order.setVendor(vendor);
-		
-		orderRepository.save(order);
-	}
-	
-	
-	
-	@PostMapping("/order/customer/{cid}")
-	public void postOrderByCustomerId(@RequestBody Order order,
-									  @PathVariable("cid") Long cid) {
-
-		
-		Optional<Customer> optional = customerRepository.findById(cid);
-		if (!optional.isPresent())
-			throw new RuntimeException("Customer ID is Invalid!!");
-		
-		Customer customer = optional.get();
-		
-		order.setCustomer(customer);
-		
-		orderRepository.save(order);
-	}
-	
-	
-	
+	}	
 	
 	@GetMapping("/orders")
+	/*
 	public List<Order> getAllOrders(){
 		List<Order> list = orderRepository.findAll();
 		
 		return list;
+		}
+		
+		*/
+	public List<OrderDto> getAllOrders(){
+		List<Order> list = orderRepository.findAll();
+		List<OrderDto> listDto = new ArrayList<>();
+		list.stream().forEach(o->{
+			OrderDto dto = new OrderDto();
+			dto.setId(o.getId());
+			dto.setOrderStatus(o.getOrderStatus());
+			dto.setOrderCost(o.getOrderCost());
+			dto.setCid(o.getCustomer().getId());
+			dto.setVid(o.getVendor().getId());
+			listDto.add(dto);
+			
+		});
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		return listDto;
 		
 	}
+		
 	
+	
+	private OrderDto OrderDto() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	@GetMapping("/order/customer/{cid}")
 	public List<Order> getOrderByCustomerId(@PathVariable("cid") Long cid){
 		List<Order> list = orderRepository.getOrderByCustomerId(cid);
