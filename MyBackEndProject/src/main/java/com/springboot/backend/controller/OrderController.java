@@ -13,12 +13,10 @@ import org.springframework.web.bind.annotation.RestController;
 import com.springboot.backend.repository.CustomerRepository;
 import com.springboot.backend.repository.OrderRepository;
 import com.springboot.backend.repository.VendorRepository;
-import com.springboot.backend.DTO.OrderDto;
+import com.springboot.backend.dto.OrderDto;
 import com.springboot.backend.model.Customer;
 import com.springboot.backend.model.Order;
 import com.springboot.backend.model.Vendor;
-import com.springboot.backend.repository.OrderRepository;
-import com.springboot.backend.model.Order;
 
 @RestController //marking a class as controller
 
@@ -96,11 +94,6 @@ public class OrderController {
 	}
 		
 
-	private OrderDto OrderDto() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 	@GetMapping("/order/customer/{cid}")
 	public List<Order> getOrderByCustomerId(@PathVariable("cid") Long cid){
 		List<Order> list = orderRepository.getOrderByCustomerId(cid);
@@ -122,7 +115,6 @@ public class OrderController {
 	}
 	
 	@PutMapping("/order/{id}")
-	public Order updateOrderById(@PathVariable("id") Long id,
 	public Order updateCategory(@PathVariable("id") Long id,
 			@RequestBody Order newOrder) {
 		Optional<Order> optional =orderRepository.findById(id);
@@ -140,21 +132,9 @@ public class OrderController {
 	public void deleteOrderById(@PathVariable("id") Long id) {
 		orderRepository.deleteById(id);
 	}
-	@GetMapping("/order/single/{id}")
-	public Order getSingleOrderById(@PathVariable("id") Long id) {
-		Optional <Order> optional = orderRepository.findById(id);
-		if(optional.isPresent())
-			return optional.get();
-		throw new RuntimeException("ID in invalid");
-		
-	}
 	
-	@DeleteMapping("/order/single/{id}")
-	public void deleteOrderStatus(@PathVariable("id") Long id) {
-		orderRepository.deleteById(id);
-	}
+	
 
 }
 
-}
 

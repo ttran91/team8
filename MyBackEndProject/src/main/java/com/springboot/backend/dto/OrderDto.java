@@ -1,4 +1,4 @@
-package com.springboot.backend.DTO;
+package com.springboot.backend.dto;
 
 public class OrderDto{
 	

@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 package com.springboot.backend.model;
 
 import javax.persistence.Entity;
@@ -182,4 +181,4 @@ public class Order_has_food {
 
 
 }
->>>>>>> e07ce64942879082a08a18d24f5f54e71def72cb
+
