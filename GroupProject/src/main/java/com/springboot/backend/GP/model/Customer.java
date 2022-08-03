@@ -5,8 +5,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "customers")
 public class Customer {
 	
 	@Id
@@ -17,27 +20,31 @@ public class Customer {
 	private String CustomerName;
 	
 	@Column
-	private String CustomerUsername;
+	private String CustomerPhone;
 	
 	@Column
-	private String CustomerPassword;
+	private String CustomerEmail;
 	
 	@Column
 	private double CustomerBalance;
+	
+	@OneToOne
+	private UserInfo userInfo;
 
 	public Customer() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Customer(Long id, String customerName, String customerUsername, String customerPassword,
-			double customerBalance) {
+	public Customer(Long id, String customerName, String customerPhone, String customerEmail, double customerBalance,
+			UserInfo userInfo) {
 		super();
 		this.id = id;
 		CustomerName = customerName;
-		CustomerUsername = customerUsername;
-		CustomerPassword = customerPassword;
+		CustomerPhone = customerPhone;
+		CustomerEmail = customerEmail;
 		CustomerBalance = customerBalance;
+		this.userInfo = userInfo;
 	}
 
 	public Long getId() {
@@ -56,20 +63,20 @@ public class Customer {
 		CustomerName = customerName;
 	}
 
-	public String getCustomerUsername() {
-		return CustomerUsername;
+	public String getCustomerPhone() {
+		return CustomerPhone;
 	}
 
-	public void setCustomerUsername(String customerUsername) {
-		CustomerUsername = customerUsername;
+	public void setCustomerPhone(String customerPhone) {
+		CustomerPhone = customerPhone;
 	}
 
-	public String getCustomerPassword() {
-		return CustomerPassword;
+	public String getCustomerEmail() {
+		return CustomerEmail;
 	}
 
-	public void setCustomerPassword(String customerPassword) {
-		CustomerPassword = customerPassword;
+	public void setCustomerEmail(String customerEmail) {
+		CustomerEmail = customerEmail;
 	}
 
 	public double getCustomerBalance() {
@@ -80,11 +87,23 @@ public class Customer {
 		CustomerBalance = customerBalance;
 	}
 
+	public UserInfo getUserInfo() {
+		return userInfo;
+	}
+
+	public void setUserInfo(UserInfo userInfo) {
+		this.userInfo = userInfo;
+	}
+
 	@Override
 	public String toString() {
-		return "Customer [id=" + id + ", CustomerName=" + CustomerName + ", CustomerUsername=" + CustomerUsername
-				+ ", CustomerPassword=" + CustomerPassword + ", CustomerBalance=" + CustomerBalance + "]";
+		return "Customer [id=" + id + ", CustomerName=" + CustomerName + ", CustomerPhone=" + CustomerPhone
+				+ ", CustomerEmail=" + CustomerEmail + ", CustomerBalance=" + CustomerBalance + ", userInfo=" + userInfo
+				+ "]";
 	}
+	
+	
+
 	
 	
 	

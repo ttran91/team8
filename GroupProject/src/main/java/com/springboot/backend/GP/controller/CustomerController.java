@@ -1,5 +1,6 @@
 package com.springboot.backend.GP.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.springboot.backend.GP.dto.CustomerDto;
 import com.springboot.backend.GP.model.Customer;
 import com.springboot.backend.GP.repository.CustomerRepository;
 
@@ -28,8 +30,22 @@ public class CustomerController {
 
 	@GetMapping("/customer") //Function used to return a list of all customers
 	public List<Customer> getAllAccounts() {
-		List<Customer> list = customerRepository.findAll();
-		return list;
+		List<Customer> list =  customerRepository.findAll();
+		List<Customer> listDto = new ArrayList<>(); 
+		list.stream().forEach(c->{
+			CustomerDto dto = new CustomerDto(); 
+			dto.setId(c.getId());
+			dto.setCustomerName(c.getCustomerName());
+			dto.setCustomerNumber(c.getCustomerPhone());
+			dto.setCustomerEmail(c.getCustomerEmail());
+			dto.setCustomerBalance(c.getCustomerBalance());
+			dto.setUid(c.getUserInfo().getId());
+			dto.setuUsername(c.getUserInfo().getUsername());
+			dto.setuPassword(c.getUserInfo().getPassword());
+			dto.setuAccountType(c.getUserInfo().getAccountType());
+			listDto.add(dto);
+		});
+		return listDto;
 	}
 
 	@GetMapping("/customer/{cid}") //Function used to return  a specific customer based on their ID
@@ -51,8 +67,7 @@ public class CustomerController {
 		if (optional.isPresent()) {
 			Customer existingCustomer = optional.get();
 			existingCustomer.setCustomerName(newCustomer.getCustomerName());
-			existingCustomer.setCustomerUsername(newCustomer.getCustomerUsername());
-			existingCustomer.setCustomerPassword(newCustomer.getCustomerPassword());
+			existingCustomer.setUserInfo(newCustomer.getUserInfo());
 			
 			return customerRepository.save(existingCustomer);
 		}
