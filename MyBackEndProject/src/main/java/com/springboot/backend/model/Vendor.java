@@ -21,10 +21,10 @@ public class Vendor {
 	private String name;
 	
 	@Column(nullable=false)
-	private String username;
+	private String phoneNumber;
 	
 	@Column(nullable=false)
-	private String password;
+	private String email;
 
 	public Long getId() {
 		return id;
@@ -42,29 +42,27 @@ public class Vendor {
 		this.name = name;
 	}
 
-	public String getUsername() {
-		return username;
+	public String getPhoneNumber() {
+		return phoneNumber;
 	}
 
-	public void setUsername(String username) {
-		this.username = username;
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
 	}
 
-	public String getPassword() {
-		return password;
+	public String getEmail() {
+		return email;
 	}
 
-	public void setPassword(String password) {
-		this.password = password;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	@Override
 	public String toString() {
-		return "Vendor [id=" + id + ", name=" + name + ", username=" + username + ", password=" + password + "]";
+		return "Vendor [id=" + id + ", name=" + name + ", phoneNumber=" + phoneNumber + ", email=" + email + "]";
 	}
 	
 	
-	
-	
-	
+
 }

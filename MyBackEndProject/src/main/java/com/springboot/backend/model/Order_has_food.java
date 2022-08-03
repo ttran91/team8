@@ -82,14 +82,6 @@ public class Order_has_food {
 	}
 
 	
-	
-	
-
-
-
-
-
-
 
 
 }
