@@ -29,9 +29,9 @@ public class CustomerController {
 	}
 
 	@GetMapping("/customer") //Function used to return a list of all customers
-	public List<Customer> getAllAccounts() {
+	public List<CustomerDto> getAllAccounts() {
 		List<Customer> list =  customerRepository.findAll();
-		List<Customer> listDto = new ArrayList<>(); 
+		List<CustomerDto> listDto = new ArrayList<>(); 
 		list.stream().forEach(c->{
 			CustomerDto dto = new CustomerDto(); 
 			dto.setId(c.getId());
