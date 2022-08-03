@@ -1,12 +1,7 @@
 package com.springboot.backend.controller;
-
-<<<<<<< HEAD
 import java.util.ArrayList;
-=======
->>>>>>> e07ce64942879082a08a18d24f5f54e71def72cb
 import java.util.List;
 import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,8 +10,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-
-<<<<<<< HEAD
 import com.springboot.backend.repository.CustomerRepository;
 import com.springboot.backend.repository.OrderRepository;
 import com.springboot.backend.repository.VendorRepository;
@@ -24,10 +17,8 @@ import com.springboot.backend.DTO.OrderDto;
 import com.springboot.backend.model.Customer;
 import com.springboot.backend.model.Order;
 import com.springboot.backend.model.Vendor;
-=======
 import com.springboot.backend.repository.OrderRepository;
 import com.springboot.backend.model.Order;
->>>>>>> e07ce64942879082a08a18d24f5f54e71def72cb
 
 @RestController //marking a class as controller
 
@@ -36,8 +27,7 @@ public class OrderController {
 	
 	@Autowired
 	private OrderRepository orderRepository;
-	
-<<<<<<< HEAD
+
 	@Autowired
 	private CustomerRepository customerRepository;
 	
@@ -74,23 +64,18 @@ public class OrderController {
 	
 	@GetMapping("/orders")
 	/*
-=======
-	
 	@PostMapping("/order")
 	public void postOrderStatus(@RequestBody Order order) {
 		// using JpaRepository Interface
-		orderRepository.save(order);
+ 	orderRepository.save(order);
 	}
 	
 	@GetMapping("/orders")
->>>>>>> e07ce64942879082a08a18d24f5f54e71def72cb
 	public List<Order> getAllOrders(){
 		List<Order> list = orderRepository.findAll();
-		
+
 		return list;
-<<<<<<< HEAD
 		}
-		
 		*/
 	public List<OrderDto> getAllOrders(){
 		List<Order> list = orderRepository.findAll();
@@ -105,21 +90,12 @@ public class OrderController {
 			listDto.add(dto);
 			
 		});
-		
-		
-		
-		
-		
-		
-		
-		
-		
+
 		return listDto;
 		
 	}
 		
-	
-	
+
 	private OrderDto OrderDto() {
 		// TODO Auto-generated method stub
 		return null;
@@ -143,17 +119,11 @@ public class OrderController {
 		if(optional.isPresent())
 			return optional.get();
 		throw new RuntimeException("ID in invalid");
-=======
->>>>>>> e07ce64942879082a08a18d24f5f54e71def72cb
-		
 	}
 	
 	@PutMapping("/order/{id}")
-<<<<<<< HEAD
 	public Order updateOrderById(@PathVariable("id") Long id,
-=======
 	public Order updateCategory(@PathVariable("id") Long id,
->>>>>>> e07ce64942879082a08a18d24f5f54e71def72cb
 			@RequestBody Order newOrder) {
 		Optional<Order> optional =orderRepository.findById(id);
 		if(optional.isPresent()) {
@@ -165,15 +135,11 @@ public class OrderController {
 		else	
 			throw new RuntimeException("ID is invalid");
 	}
-	
-<<<<<<< HEAD
 
-	
 	@DeleteMapping("/order/single/{id}")
 	public void deleteOrderById(@PathVariable("id") Long id) {
 		orderRepository.deleteById(id);
-	
-=======
+	}
 	@GetMapping("/order/single/{id}")
 	public Order getSingleOrderById(@PathVariable("id") Long id) {
 		Optional <Order> optional = orderRepository.findById(id);
@@ -186,35 +152,9 @@ public class OrderController {
 	@DeleteMapping("/order/single/{id}")
 	public void deleteOrderStatus(@PathVariable("id") Long id) {
 		orderRepository.deleteById(id);
->>>>>>> e07ce64942879082a08a18d24f5f54e71def72cb
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-<<<<<<< HEAD
-	
 
 }
 
-=======
-
 }
->>>>>>> e07ce64942879082a08a18d24f5f54e71def72cb
+

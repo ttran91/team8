@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 package com.springboot.backend.controller;
 
 import java.util.List;
