@@ -39,10 +39,7 @@ public class CustomerController {
 			dto.setCustomerNumber(c.getCustomerPhone());
 			dto.setCustomerEmail(c.getCustomerEmail());
 			dto.setCustomerBalance(c.getCustomerBalance());
-			dto.setUid(c.getUserInfo().getId());
-			dto.setuUsername(c.getUserInfo().getUsername());
-			dto.setuPassword(c.getUserInfo().getPassword());
-			dto.setuAccountType(c.getUserInfo().getAccountType());
+		
 			listDto.add(dto);
 		});
 		return listDto;

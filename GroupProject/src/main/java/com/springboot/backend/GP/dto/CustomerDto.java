@@ -1,18 +1,15 @@
 package com.springboot.backend.GP.dto;
 
-import com.springboot.backend.GP.enums.AccountType;
-import com.springboot.backend.GP.model.UserInfo;
-
 public class CustomerDto {
 	private long id;
 	private String CustomerName;
 	private String CustomerNumber;
 	private String CustomerEmail;
 	private double CustomerBalance;
-	private long uid;
-	private String uUsername;
-	private String uPassword;
-	private AccountType uAccountType;
+	
+	
+	
+	
 	public long getId() {
 		return id;
 	}
@@ -43,30 +40,7 @@ public class CustomerDto {
 	public void setCustomerBalance(double customerBalance) {
 		CustomerBalance = customerBalance;
 	}
-	public long getUid() {
-		return uid;
-	}
-	public void setUid(long uid) {
-		this.uid = uid;
-	}
-	public String getuUsername() {
-		return uUsername;
-	}
-	public void setuUsername(String uUsername) {
-		this.uUsername = uUsername;
-	}
-	public String getuPassword() {
-		return uPassword;
-	}
-	public void setuPassword(String uPassword) {
-		this.uPassword = uPassword;
-	}
-	public AccountType getuAccountType() {
-		return uAccountType;
-	}
-	public void setuAccountType(AccountType uAccountType) {
-		this.uAccountType = uAccountType;
-	}
+	
 	
 
 }
