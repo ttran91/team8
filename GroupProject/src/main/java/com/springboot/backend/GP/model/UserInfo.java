@@ -7,34 +7,37 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import com.springboot.backend.GP.enums.AccountType;
 @Entity
-@Table(name = "userinfo")
+@Table(name="users")
 public class UserInfo {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
-	@Column
-	private String Username;
+	@Column(nullable=false)
+	private String name;
 	
-	@Column
-	private String Password;
+	@Column(nullable=false)
+	private String username;
 	
-	@Column
-	private AccountType accountType;
+	@Column(nullable=false)
+	private String password;
+	
+	@Column(nullable=false)
+	private String accountType;
 
 	public UserInfo() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public UserInfo(Long id, String username, String password, AccountType accountType) {
+	public UserInfo(Long id, String name, String username, String password, String accountType) {
 		super();
 		this.id = id;
-		Username = username;
-		Password = password;
+		this.name = name;
+		this.username = username;
+		this.password = password;
 		this.accountType = accountType;
 	}
 
@@ -46,34 +49,45 @@ public class UserInfo {
 		this.id = id;
 	}
 
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
 	public String getUsername() {
-		return Username;
+		return username;
 	}
 
 	public void setUsername(String username) {
-		Username = username;
+		this.username = username;
 	}
 
 	public String getPassword() {
-		return Password;
+		return password;
 	}
 
 	public void setPassword(String password) {
-		Password = password;
+		this.password = password;
 	}
 
-	public AccountType getAccountType() {
+	public String getAccountType() {
 		return accountType;
 	}
 
-	public void setAccountType(AccountType accountType) {
+	public void setAccountType(String accountType) {
 		this.accountType = accountType;
 	}
 
 	@Override
 	public String toString() {
-		return "UserInfo [id=" + id + ", Username=" + Username + ", Password=" + Password + ", accountType="
-				+ accountType + "]";
+		return "UserInfo [id=" + id + ", name=" + name + ", username=" + username + ", password=" + password
+				+ ", accountType=" + accountType + "]";
 	}
+
+	
+	
 	
 }
